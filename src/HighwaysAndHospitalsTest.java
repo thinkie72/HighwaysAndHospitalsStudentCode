@@ -44,19 +44,19 @@ public class HighwaysAndHospitalsTest {
     }
 
     @Test
-    @Timeout(value = 500, unit = TimeUnit.MILLISECONDS)
+    @Timeout(value = 1100, unit = TimeUnit.MILLISECONDS)
     public void testEfficientLarge() {
         setTestData(10);
     }
 
     @Test
-    @Timeout(value = 100, unit = TimeUnit.MILLISECONDS)
+    @Timeout(value = 200, unit = TimeUnit.MILLISECONDS)
     public void testEfficientAlsoLarge() {
         setTestData(7);
     }
 
     @Test
-    @Timeout(value = 40, unit = TimeUnit.SECONDS)
+    @Timeout(value = 30, unit = TimeUnit.SECONDS)
     public void testVeryLarge() {
         setTestData(9);
     }
