@@ -10,10 +10,6 @@
 
 public class HighwaysAndHospitals {
 
-    /**
-     * TODO: Complete this function, cost(), to return the minimum cost to provide
-     *  hospital access for all citizens in Menlo County.
-     */
     public static long cost(int n, int hospitalCost, int highwayCost, int cities[][]) {
         if (highwayCost >= hospitalCost) {
             return (int) (hospitalCost * n);
