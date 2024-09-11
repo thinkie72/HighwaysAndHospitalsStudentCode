@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Highways & Hospitals
  * A puzzle created by Zach Blick
@@ -16,8 +18,16 @@ public class HighwaysAndHospitals {
         }
 
         int m = cities.length;
+        int two = cities[0].length;
 
+        ArrayList<ArrayList<Integer>> map = new ArrayList<ArrayList<Integer>>();
+        Array
         for (int i = 0; i < m; i++) {
+            for (int j = 0; j < two; j++) {
+                map.add(new ArrayList<>());
+                map
+            }
+        }
             // Traverse through array to map out roads
             // Make a hospital for each cluster
             // Make roads for each cluster to connect to the hospital
