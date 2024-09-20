@@ -17,6 +17,52 @@ public class HighwaysAndHospitals {
         // Returns case from class where if hospitals cost <= highways then just build hospitals everywhere
         if (highwayCost >= hospitalCost) return (long) hospitalCost * n;
         int[] roots = new int[n + 1];
+        int x, y, i, j, temp;
+        for (int[] edge : cities) {
+            x = edge[0];
+            y = edge[1];
+            i = x;
+            while (roots[i] > 0) {
+                i = roots[i];
+            }
+
+            j = y;
+            while (roots[j] > 0) {
+                j = roots[j];
+            }
+
+            // Path compression for x
+            while (roots[x] > 0) {
+                temp = x;
+                x = roots[x];
+                roots[temp] = i;
+            }
+
+            // Path compression for y
+            while (roots[y] > 0) {
+                temp = y;
+                y = roots[y];
+                roots[temp] = j;
+            }
+
+            if (roots[i] != roots[j] && i != j) {
+                if (roots[j] < roots[i]) {
+                    roots[j] += roots[i] - 1;
+                    roots[i] = j;
+                } else {
+                    roots[i] += roots[j] - 1;
+                    roots[j] = i;
+                }
+            }
+        }
+
+        int clusters = 0;
+
+        for (int k = 0; k < roots.length; k++) {
+            if (roots[k] == 0) clusters++;
+        }
+
+        return (long) clusters * hospitalCost + (long) (n-2) * highwayCost;
 //        For each edge AB:
 //        X = A
 //        While city X is not its root:
@@ -25,32 +71,33 @@ public class HighwaysAndHospitals {
 //        temp = roots[A]
 //        roots[A] = X
 //        A = temp
-        int x, a, b, temp;
-        for (int[] edge : cities) {
-            a = edge[0];
-            b = edge[1];
-            x = a;
-            while (x != roots[a]) x = roots[x];
-            while (a != roots[b]) {
-                temp = roots[a];
-                roots[a] = x;
-                a = temp;
-            }
-        }
-//        // Find roots, R and S
-//	        X = order(R)
-//	        Y = order(S)
-//	        if (X > Y)
-//		        root[S] = R
-//	        else
-//		        root[R] = S
-        int r, s, one, two;
-        for (int[] edge : cities) {
-            a = edge[0];
-            b = edge[1];
-            x = a;
-            r = ;
-        }
+//
+//        int x, a, b, temp;
+//        for (int[] edge : cities) {
+//            a = edge[0];
+//            b = edge[1];
+//            x = a;
+//            while (x != roots[a]) x = roots[x];
+//            while (a != roots[b]) {
+//                temp = roots[a];
+//                roots[a] = x;
+//                a = temp;
+//            }
+//        }
+////        // Find roots, R and S
+////	        X = order(R)
+////	        Y = order(S)
+////	        if (X > Y)
+////		        root[S] = R
+////	        else
+////		        root[R] = S
+//        int r, s, one, two;
+//        for (int[] edge : cities) {
+//            a = edge[0];
+//            b = edge[1];
+//            x = a;
+//            r = roo;
+//        }
 
 //        // Array to hold whether or not a specific town has access to a hospital yet
 //        boolean[] hospitalAccess = new boolean[n + 1];
@@ -103,6 +150,6 @@ public class HighwaysAndHospitals {
 //            }
 //        }
 
-        return (long) hospitals * hospitalCost + (long) highways * highwayCost;
+//        return (long) hospitals * hospitalCost + (long) highways * highwayCost;
     }
 }

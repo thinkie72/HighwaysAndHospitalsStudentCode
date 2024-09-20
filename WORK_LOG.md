@@ -8,6 +8,7 @@ Name: Tyler Hinkie
 | September 12 |  11-11:30pm   |                                                 The former algorithm did not work, so I tried to use a queue instead to check for all of the neighbors like in a tree fashion, and it worked. Comments and style coming soon... |
 | September 12 | 11:30-11:50pm |                                                                                 Wrote comments to understand the process of my first attempt, especially for when I go back and make changes later before the final submission. |
 | September 18 |  1:15-1:45pm  |                                                                                                                                                    Tried to convert path compression and weight balancing pseudocode into code. |
+| September 19 |   9-9:30pm    |                                                                                                                         I used the code from teh reading to try another attempt, but it still failed, debugging and fixing now. |
 
 
 To add a new row to the table, click into a cell and then hit shift-enter.
