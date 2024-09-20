@@ -43,7 +43,7 @@ public class HighwaysAndHospitals {
                 clusters--;
 
                 // Adds smaller cluster onto the larger one, depending on which one is larger
-                if (roots[startRoot] < roots[endRoot]) {
+                if (roots[startRoot] > roots[endRoot]) {
                     roots[endRoot] += roots[startRoot];
                     roots[startRoot] = endRoot;
                 } else {
